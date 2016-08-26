@@ -18,7 +18,7 @@
 				return aLine;
 			}
 			
-			function start() {
+			function drawLines() {
 				var aSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 				aSvg.setAttribute('width', 1200);
 				aSvg.setAttribute('height', 1000);
@@ -26,17 +26,40 @@
 				w.appendChild(aSvg);
 				
 				console.log(aSvg);
-						
+				var i=0, a=0, tempX1=0, tempX2=0, tempY1=0, tempY2=75, tmpX1=0, tmpX2=0, tmpY1=150, tmpY2=75;
+				
 				setInterval(function(){
-						console.log("hi");
-						var x1 = Math.floor(Math.random() * 1600);
-						var xx = createLine(x1, 0, Math.floor(Math.random() * 1600), Math.floor(Math.random() * 1400), 'rgb(0, 50,' + Math.floor(Math.random() * 1000)+')', Math.floor(Math.random() * 10));
+						
+						if(i==150){
+							i=0;
+							tempX1 = tempX1 + 150;
+	/*						tempY1 = tempY1 + 300;*/
+						}
+						
+						console.log(tempX2);
+					
+						var xx = createLine(tempX1, tempY1,tempX2,tempY2, 'rgb(0, 50,' + Math.floor(Math.random() * 1000)+')', 1);
 						aSvg.appendChild(xx);
-				},10);
+						i++,tempX2++;
+				},0);
+				
+				setInterval(function(){
+		
+						if(a==150){
+							a=0;
+							tmpX1 = tmpX1 + 150;
+							/*tmpX2 = tmpX2 + 300;*/
+						}
+					
+						var xx = createLine(tmpX1, tmpY1,tmpX2,tmpY2,'rgb(0, 50,' + Math.floor(Math.random() * 1000)+')', 1);
+						aSvg.appendChild(xx);
+						a++, tmpX2++;
+				},0);
 				
 			}
 			
-			start();	
+			drawLines();	
+			
 		</script>
 	</body>
 </html>
