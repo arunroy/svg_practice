@@ -3,10 +3,11 @@
 		<title>Graphics</title>
 	</head>
 	<body>
+		<img>
 		<div id="container"></div>
 		
 		<script type="text/javascript">
-
+					
 			createLine = function (x1, y1, x2, y2, color, w) {
 				var aLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
 				aLine.setAttribute('x1', x1);
@@ -36,8 +37,7 @@
 	/*						tempY1 = tempY1 + 300;*/
 						}
 						
-						console.log(tempX2);
-					
+										
 						var xx = createLine(tempX1, tempY1,tempX2,tempY2, 'rgb(0, 50,' + Math.floor(Math.random() * 1000)+')', 1);
 						aSvg.appendChild(xx);
 						i++,tempX2++;
